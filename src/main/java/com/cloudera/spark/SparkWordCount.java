@@ -21,26 +21,25 @@ public class SparkWordCount {
 
         if (args.length == 0) {
             System.err
-                    .println("Usage: SparkWordCount {master} {filePath}");
+                    .println("Usage: SparkWordCount {jarsList} {master} {inputFilePath} ");
             System.exit(1);
         }
 
-        String master = args[0];
-        String filePath = args[1];
-
-//        System.setProperty("spark.serializer", KryoSerializer.class.getName());
-//        System.setProperty("spark.kryo.registrator", KryoRegistrator.class.getName());
+        String jarsList = args[0];
+        String master = args[1];
+        String inputFilePath = args[2];
 
         SparkConf conf = new SparkConf();
         conf.setMaster(master).setAppName("wordCount");
-        conf.setJars(new String[] {"/home/cloudera/SparkDemo.jar"});
+        conf.setJars(new String[]{jarsList});
+//        conf.setJars(new String[]{"/home/cloudera/SparkDemo.jar"});
 
         JavaSparkContext sc = new JavaSparkContext(conf);
 
 //        System.in.read();
 
         try {
-        JavaRDD<String> lines = sc.textFile(filePath);
+        JavaRDD<String> lines = sc.textFile(inputFilePath);
 
         JavaRDD<String> words = lines.flatMap(
                 new FlatMapFunction<String, String>() {
