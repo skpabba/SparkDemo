@@ -1,0 +1,12 @@
+DROP table sbt_events;
+CREATE EXTERNAL TABLE sbt_events (
+   subscriber String,
+   event_dt bigint,
+   event_type String,
+   event_data String
+)
+ROW FORMAT SERDE 'parquet.hive.serde.ParquetHiveSerDe'
+STORED AS
+INPUTFORMAT 'parquet.hive.DeprecatedParquetInputFormat'
+OUTPUTFORMAT 'parquet.hive.DeprecatedParquetOutputFormat'
+LOCATION '/user/<username>/<outdir>';
