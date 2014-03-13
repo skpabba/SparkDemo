@@ -9,9 +9,9 @@ For deploying this in your environment,
 * Git clone the project
 * Build the project using ```mvn clean package```
 * Copy the SparkDemo/target/SparkDemo.jar to your CDH cluster gateway node. Typically to an application lib folder <MYAPP_LIB>
-* Copy the runSparkDriver.sh to your CDH cluster gateway node. Typically to an application scripts folder
+* Copy the scripts (runSpark*.sh) to your CDH cluster gateway node. Typically to an application scripts folder
 <MYAPP_SCRIPTS>
 
-Modify the runSparkDriver.sh to have correct DRIVER_CLASSPATH location, <Spark Master URL> and <test file path> before you run the script.
+Modify the runSpark*.sh script to have correct DRIVER_CLASSPATH location, <Spark Master URL>, <input file path> and/or <output file path> before you run the script.
 
 **Note** This was tested using CDH5b2. Classpaths in the script have to be changed for your version of CDH.
