@@ -1,0 +1,12 @@
+{
+ "type": "record",
+ "namespace": "com.cloudera.spark.common",
+ "name": "STBEvent",
+ "doc": "Set Top Box Event",
+ "fields": [
+            {"name": "subscriber_id", "type": "string"},
+            {"name": "event_dt", "type": ["null", "long"]},
+            {"name": "event_type", "type": ["null", "string"]},
+            {"name": "event_data", "type": ["null", "string"]}
+           ]
+}
