@@ -1,4 +1,4 @@
-Simple Spark Word Count Java client
+Simple Spark Java clients (Word Count, Parquet Writer, etc)
 
 Objective of the project is just to demonstrate end to end application which includes 
 * Sample Java code
